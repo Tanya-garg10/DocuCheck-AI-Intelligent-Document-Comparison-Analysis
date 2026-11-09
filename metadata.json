@@ -1,0 +1,6 @@
+{
+  "name": "DocuCheck AI – Intelligent Document Comparison",
+  "description": "Compare documents intelligently with AI. Detect changes, uncover missing information, and understand inconsistencies in seconds.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

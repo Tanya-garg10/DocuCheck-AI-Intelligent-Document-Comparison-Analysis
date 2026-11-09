@@ -1,0 +1,41 @@
+================================================================================
+DocuCheck AI – BharatCode AI Integration Documentation
+BharatCode Build League 2026 Submission
+================================================================================
+
+1. OVERVIEW & PURPOSE
+DocuCheck AI utilizes BharatCode AI to provide intelligent document comparison
+and semantic change analysis. While conventional diff tools only compute raw textual
+additions and deletions, BharatCode AI contextualizes those differences—explaining
+their business, legal, and operational significance in plain, human-friendly language.
+
+2. MODEL & API CONFIGURATION
+- Base Endpoint: https://bharatcode.ai/api/model/v1
+- Model Name: qwen-3.8-27b
+- Authentication: Bearer token via environment variable BHARATCODE_API_KEY
+- Mode: Server-side API proxy (API keys are strictly isolated on the backend)
+- Data Privacy: Documents are processed in-memory with store: false parameter where supported
+
+3. WHAT INFORMATION IS SENT FOR ANALYSIS
+To optimize token efficiency and preserve document confidentiality:
+- Normalized textual excerpts of the Original Document
+- Normalized textual excerpts of the Updated Document
+- Pre-computed syntactic diff summary (added lines, removed lines, modified blocks)
+- Structured contextual prompt requiring factual, non-hallucinatory evaluation
+
+4. WHAT INSIGHTS BHARATCODE AI GENERATES
+DocuCheck AI instructs the qwen-3.8-27b model to produce a strict JSON output covering:
+- Executive Summary: A high-level, executive summary of what changed between versions
+- Important Changes: Categorized key modifications (financial figures, dates, titles, compensation, deadlines)
+- Missing Information: Essential clauses, metadata, or fields present in the original but omitted in the update
+- Inconsistencies & Contradictions: Conflicting statements, numerical discrepancies, or logical mismatches
+- Risk Assessment: Overall risk rating (Low, Medium, High) based on change magnitude
+- Actionable Recommendations: Concrete next steps for reviewers, HR managers, or legal signatories
+
+5. SECURITY & RESILIENCE GUARANTEE
+- Zero client-side API key exposure
+- Local Diff Fallback Engine: If BharatCode API key is unconfigured or temporarily
+  unreachable, the local syntactic diff and heuristic analysis engine continues to
+  provide 100% verified textual diffs, change statistics, and line-level side-by-side
+  analysis without interruption.
+================================================================================
