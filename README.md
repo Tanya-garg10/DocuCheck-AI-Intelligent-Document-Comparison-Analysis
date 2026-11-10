@@ -6,8 +6,6 @@
 
 Instead of eye-straining line-by-line manual reviews, DocuCheck AI combines local high-precision syntax diffing with **BharatCode AI (`qwen-3.8-27b`)** to generate executive summaries, detect contradictory clauses, highlight numerical/date shifts, and recommend concrete actions.
 
----
-
 ## 🌟 Key Features
 
 1. **Multi-Format In-Memory Extraction**:
@@ -38,8 +36,6 @@ Instead of eye-straining line-by-line manual reviews, DocuCheck AI combines loca
 6. **Zero-Downtime Fallback Architecture**:
    - If the BharatCode API key is not configured or external network is unavailable, the local comparison engine still computes 100% verified textual diffs and provides heuristic analysis.
 
----
-
 ## 🏗️ Architecture
 
 ```
@@ -59,12 +55,10 @@ Instead of eye-straining line-by-line manual reviews, DocuCheck AI combines loca
 │  └───────────────────────────┬────────────────────────────┘ │
 │  ┌───────────────────────────▼────────────────────────────┐ │
 │  │ BharatCode AI Service (qwen-3.8-27b @ bharatcode.ai)   │ │
-│  │ Fallback: Local Heuristic Analysis Engine             │ │
+│  │ Fallback: Local Heuristic Analysis Engine              │ │
 │  └────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────┘
 ```
-
----
 
 ## 🛠️ Tech Stack
 
@@ -72,8 +66,6 @@ Instead of eye-straining line-by-line manual reviews, DocuCheck AI combines loca
 - **Backend**: Node.js, Express, Multer, `pdf-parse`, `mammoth`, `diff`
 - **AI Model**: BharatCode AI (`qwen-3.8-27b`)
 - **API Base**: `https://bharatcode.ai/api/model/v1`
-
----
 
 ## 🚀 Getting Started
 
@@ -109,15 +101,11 @@ npm run dev
 ```
 Open `http://localhost:3000` in your browser.
 
----
-
 ## 🔒 Security & Privacy
 
 - Documents are processed exclusively in volatile memory and never persisted to disks or databases.
 - BharatCode AI requests use `store: false` to ensure inputs are not retained for training.
 - API keys are handled server-side only; zero secrets are exposed to the browser bundle.
-
----
 
 ## 📄 License
 Apache-2.0. Built for BharatCode Build League 2026.
